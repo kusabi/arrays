@@ -1,0 +1,23 @@
+{
+    "runner.bootstrap": "vendor/autoload.php",
+    "runner.path": "benchmarks",
+    "runner.progress": "dots",
+    "storage.xml_storage_path": "coverage/bench",
+    "report.generators": {
+        "speed": {
+            "extends": "aggregate",
+            "cols": [
+                "benchmark",
+                "subject",
+                "mode",
+                "rstdev"
+            ]
+        },
+        "consumation_of_time": {
+            "extends": "default",
+            "title": "The Consumation of Time",
+            "description": "Benchmark how long it takes to consume time",
+            "cols": [ "subject", "mode" ]
+        }
+    }
+}

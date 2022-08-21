@@ -1,0 +1,33 @@
+{
+    "name": "kusabi/arrays",
+    "description": "A library that extends PHP's native array functionality",
+    "type": "library",
+    "license": "mit",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "keywords": [
+        "php",
+        "arrays"
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "*",
+        "phan/phan": "*",
+        "phpunit/phpunit": "*",
+        "phpbench/phpbench": "*",
+        "symfony/var-dumper": "*"
+    },
+    "autoload": {
+        "files": [
+            "src/arrays.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kusabi\\Native\\Benchmarks\\": "benchmarks/",
+            "Kusabi\\Native\\Tests\\": "tests/"
+        }
+    }
+}
