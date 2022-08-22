@@ -129,6 +129,28 @@ if (!function_exists('array_inflate')) {
     }
 }
 
+if (!function_exists('array_join')) {
+    /**
+     * Join the elements of the array together as a string connected by a substring.
+     *
+     * An optional second parameter can be used as a final string
+     *
+     * @param array $array
+     * @param string $glue
+     * @param string|null $finalGlue
+     *
+     * @return string
+     */
+    function array_join(array $array, string $glue = '', string $finalGlue = null): string
+    {
+        if ($finalGlue === null || count($array) <= 1) {
+            return implode($glue, $array);
+        }
+        $last = array_pop($array);
+        return implode($finalGlue, [implode($glue, $array), $last]);
+    }
+}
+
 if (!function_exists('array_key_at')) {
     /**
      * Get the nth key from an array.
