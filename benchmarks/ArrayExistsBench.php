@@ -2,9 +2,6 @@
 
 namespace Kusabi\Native\Benchmarks;
 
-use function array_exists;
-use function array_set;
-
 /**
  * @BeforeMethods({"init"})
  */

@@ -2,7 +2,7 @@
 
 Checks if the given key or index exists in the array using dot notation for nested arrays.
 
-This method is identical to [array_key_exists](https://www.php.net/manual/en/function.array-key-exists.php) but it uses dot notation for nested arrays.
+This method is identical to [array_key_exists](https://www.php.net/manual/en/function.array-key-exists.php) except it uses dot notation for nested arrays.
 
 ```php
 array_exists(array $array, string $key): bool

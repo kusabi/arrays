@@ -68,14 +68,17 @@ if (!function_exists('array_exist')) {
      * Determine if a key exists in an array using dot notation for nested sets
      *
      * @param array $array
-     * @param string $key
+     * @param string|int $key
      *
      * @return bool
+     *
+     * @see array_key_exists()
+     * @link https://www.php.net/manual/en/function.array-key-exists.php
      */
-    function array_exists(array $array, string $key): bool
+    function array_exists(array $array, $key): bool
     {
         foreach (explode('.', $key) as $key) {
-            if (!isset($array[$key])) {
+            if (!array_key_exists($key, $array)) {
                 return false;
             }
             $array = &$array[$key];

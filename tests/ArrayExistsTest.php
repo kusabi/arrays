@@ -13,11 +13,28 @@ use PHPUnit\Framework\TestCase;
  */
 class ArrayExistsTest extends TestCase
 {
+    public function testEmptyArray()
+    {
+        $array = [];
+        $this->assertSame(false, array_exists($array, 'a'));
+
+        array_set($array, 'a', 1);
+        $this->assertSame(true, array_exists($array, 'a'));
+        $this->assertSame(false, array_exists($array, 'b'));
+    }
+
     public function testEmptyString()
     {
         $array = [];
         array_set($array, '', 1);
         $this->assertSame(true, array_exists($array, ''));
+    }
+
+    public function testKeyIsInteger()
+    {
+        $array = [];
+        array_set($array, 55, 'Hello');
+        $this->assertSame(true, array_exists($array, 55));
     }
 
     public function testMultipleDeep()
@@ -56,16 +73,6 @@ class ArrayExistsTest extends TestCase
         $this->assertSame(true, array_exists($array, 'h'));
     }
 
-    public function testEmptyArray()
-    {
-        $array = [];
-        $this->assertSame(false, array_exists($array, 'a'));
-
-        array_set($array, 'a', 1);
-        $this->assertSame(true, array_exists($array, 'a'));
-        $this->assertSame(false, array_exists($array, 'b'));
-    }
-
     public function testSingleDeep()
     {
         $array = [];
@@ -79,5 +86,12 @@ class ArrayExistsTest extends TestCase
         $array = [];
         array_set($array, 'a', 1);
         $this->assertSame(true, array_exists($array, 'a'));
+    }
+
+    public function testValueIsNull()
+    {
+        $array = [];
+        array_set($array, 'test', null);
+        $this->assertSame(true, array_exists($array, 'test'));
     }
 }
