@@ -33,8 +33,10 @@ The above example will output:
 Array
 (
     [a] => 1
-    [b.a] => 2
-    [b.b] => 3
+    [b] => Array
+        (
+            [a] => 2
+            [b] => 3
+        )
 )
-
 ```
