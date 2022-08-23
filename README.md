@@ -46,7 +46,7 @@ Before pushing any changes, please ensure the unit tests are all passing.
 If possible, feel free to improve coverage in a separate commit.
 
 ```bash
-vendor/bin/phpunit
+vendor/bin/phpunit --prepend autoload.php
 ```
 
 #### Code sniffer
