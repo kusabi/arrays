@@ -46,7 +46,7 @@ Before pushing any changes, please ensure the unit tests are all passing.
 If possible, feel free to improve coverage in a separate commit.
 
 ```bash
-vendor/bin/phpunit
+vendor/bin/phpunit --prepend autoload.php
 ```
 
 #### Code sniffer
@@ -96,6 +96,7 @@ Below you can find links to the documentation for the new features.
 | [array_exists](documentation/array_exists.md)   | Checks if the given key or index exists in the array using dot notation for nested arrays                 |
 | [array_get](documentation/array_exists.md)      | Returns a value from the array, using dot notation for nested sets                                        |
 | [array_inflate](documentation/array_inflate.md) | Expands a flattened array back into a nested array                                                        |
+| [array_is_list](documentation/array_is_list.md) | Checks whether a given array is a list                                                                    |
 | [array_join](documentation/array_join.md)       | Joins entries of array into a string using optional glue substring and optional final glue substring      |
 | [array_key_at](documentation/array_key_at.md)   | Get the nth key from an array                                                                             |
 | [array_only](documentation/array_only.md)       | Return a subset of the array by passing in an array of keys to keep                                       |

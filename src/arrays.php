@@ -63,7 +63,7 @@ if (!function_exists('array_except')) {
     }
 }
 
-if (!function_exists('array_exist')) {
+if (!function_exists('array_exists')) {
     /**
      * Determine if a key exists in an array using dot notation for nested sets
      *
@@ -126,6 +126,22 @@ if (!function_exists('array_inflate')) {
             array_set($results, $key, $value);
         }
         return $results;
+    }
+}
+
+if (!function_exists('array_is_list')) {
+    /**
+     * Checks whether a given array is a list
+     *
+     * Determines if the given array is a list. An array is considered a list if its keys consist of consecutive numbers from 0 to count($array)-1.
+     *
+     * @param array $array
+     *
+     * @return bool
+     */
+    function array_is_list(array $array): bool
+    {
+        return $array === array_values($array);
     }
 }
 
