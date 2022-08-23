@@ -37,6 +37,20 @@ class ArrayExistsTest extends TestCase
         $this->assertSame(true, array_exists($array, 55));
     }
 
+    public function testNestedKeyDoesNotExist()
+    {
+        $array = [
+            'a' => 1,
+            'b' => 2,
+            'c' => [
+                'a' => 1,
+                'b' => null,
+                'c' => 3,
+            ],
+        ];
+        $this->assertSame(false, array_exists($array, 'a.a.c'));
+    }
+
     public function testMultipleDeep()
     {
         $array = [];

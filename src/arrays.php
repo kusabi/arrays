@@ -78,7 +78,7 @@ if (!function_exists('array_exist')) {
     function array_exists(array $array, $key): bool
     {
         foreach (explode('.', $key) as $key) {
-            if (!array_key_exists($key, $array)) {
+            if (!is_array($array) || !array_key_exists($key, $array)) {
                 return false;
             }
             $array = &$array[$key];
