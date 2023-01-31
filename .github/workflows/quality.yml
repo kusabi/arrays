@@ -44,7 +44,7 @@ jobs:
 
       # Run unit tests with code coverage
       - name: Run phpunit
-        run: vendor/bin/phpunit --coverage-clover=coverage/coverage.xml
+        run: vendor/bin/phpunit  --prepend autoload.php --coverage-clover=coverage/coverage.xml
 
       # Upload the code coverage artifact
       - name: Upload code coverage artifact

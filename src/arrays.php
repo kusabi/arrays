@@ -87,6 +87,21 @@ if (!function_exists('array_exists')) {
     }
 }
 
+if (!function_exists('array_first')) {
+    /**
+     * Get the first value from an array
+     *
+     * @param array $array
+     *
+     * @return mixed
+     */
+    function array_first(array $array)
+    {
+        $array1 = array_slice($array, 0, 1);
+        return array_pop($array1);
+    }
+}
+
 if (!function_exists('array_get')) {
     /**
      * Get a value from the array using dot notation for nested sets
@@ -182,6 +197,21 @@ if (!function_exists('array_key_at')) {
             $index = count($array) + $index;
         }
         return array_keys($array)[$index] ?? null;
+    }
+}
+
+if (!function_exists('array_last')) {
+    /**
+     * Get the last value from an array
+     *
+     * @param array $array
+     *
+     * @return mixed
+     */
+    function array_last(array $array)
+    {
+        $array1 = array_slice($array, -1, 1);
+        return array_pop($array1);
     }
 }
 

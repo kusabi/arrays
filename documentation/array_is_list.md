@@ -2,6 +2,9 @@
 
 Determines if the given array is a list. An array is considered a list if its keys consist of consecutive numbers from 0 to count($array)-1.
 
+This method is just a polyfill for [array_is_list](https://www.php.net/manual/en/function.array-is-list.php).
+
+
 ```php
 array_is_list(array $array): bool
 ```
