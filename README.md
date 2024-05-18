@@ -95,6 +95,7 @@ Below you can find links to the documentation for the new features.
 | [array_except](documentation/array_except.md)   | Return a subset of the array by passing in an array of keys to discard                                    |
 | [array_exists](documentation/array_exists.md)   | Checks if the given key or index exists in the array using dot notation for nested arrays                 |
 | [array_first](documentation/array_first.md)     | Get the first item from the array                                                                         |
+| [array_from](documentation/array_from.md)       | Attempt to convert an input into an array                                                                 |
 | [array_get](documentation/array_exists.md)      | Returns a value from the array, using dot notation for nested sets                                        |
 | [array_inflate](documentation/array_inflate.md) | Expands a flattened array back into a nested array                                                        |
 | [array_is_list](documentation/array_is_list.md) | Checks whether a given array is a list                                                                    |

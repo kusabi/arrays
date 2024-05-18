@@ -102,6 +102,32 @@ if (!function_exists('array_first')) {
     }
 }
 
+if (!function_exists('array_from')) {
+    /**
+     * Attempt to convert the input into an array
+     *
+     * @param mixed $data
+     *
+     * @return array
+     */
+    function array_from($data): array
+    {
+        if (is_array($data)) {
+            return $data;
+        }
+        if (is_string($data)) {
+            return str_split($data);
+        }
+        if ($data instanceof JsonSerializable) {
+            return $data->jsonSerialize();
+        }
+        if ($data instanceof Traversable) {
+            return iterator_to_array($data);
+        }
+        return (array) $data;
+    }
+}
+
 if (!function_exists('array_get')) {
     /**
      * Get a value from the array using dot notation for nested sets
