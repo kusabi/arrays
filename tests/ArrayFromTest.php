@@ -2,6 +2,8 @@
 
 namespace Kusabi\Native\Tests;
 
+use ArrayIterator;
+use ArrayObject;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,16 +13,27 @@ use PHPUnit\Framework\TestCase;
  */
 class ArrayFromTest extends TestCase
 {
-    public function testArray()
+    public static function provideCommonConversions(): array
     {
-        $array = [1, 2, 3, 4, 5, 'a', 'b', 'c', 'd'];
-        $created = array_from($array);
-        $this->assertSame($array, $created);
+        return [
+            'null' => [null, []],
+            'false' => [false, [false]],
+            'true' => [true, [true]],
+            'integer' => [1, [1]],
+            'float' => [12.34, [12.34]],
+            'string' => ['hello', ['h', 'e', 'l', 'l', 'o']],
+            'array' => [[1, 2, 3, 4, 5, 'a', 'b', 'c', 'd'], [1, 2, 3, 4, 5, 'a', 'b', 'c', 'd']],
+            'iterator' => [new ArrayIterator([1, 2, 3]), [1, 2, 3]],
+            'traversable' => [new ArrayObject([1, 2, 3]), [1, 2, 3]],
+        ];
     }
 
-    public function testInteger()
+    /**
+     * @dataProvider provideCommonConversions
+     */
+    public function testCommonConversions($input, $expected)
     {
-        $this->assertSame([1], array_from(1));
+        $this->assertSame($expected, array_from($input));
     }
 
     public function testJsonSerializable()
@@ -29,19 +42,6 @@ class ArrayFromTest extends TestCase
         $serializable = $this->createMock(\JsonSerializable::class);
         $serializable->method('jsonSerialize')->willReturn($array);
         $created = array_from($serializable);
-        $this->assertSame($array, $created);
-    }
-
-    public function testString()
-    {
-        $this->assertSame(['h', 'e', 'l', 'l', 'o'], array_from('hello'));
-    }
-
-    public function testTraversable()
-    {
-        $array = [1, 2, 3, 4, 5, 'a', 'b', 'c', 'd'];
-        $traversable = new \ArrayObject($array);
-        $created = array_from($traversable);
         $this->assertSame($array, $created);
     }
 }

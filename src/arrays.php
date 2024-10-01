@@ -128,6 +128,21 @@ if (!function_exists('array_from')) {
     }
 }
 
+if (!function_exists('array_from_query')) {
+    /**
+     * Convert a URL query string to an array
+     *
+     * @param string $query
+     *
+     * @return array
+     */
+    function array_from_query(string $query): array
+    {
+        parse_str($query, $array);
+        return $array;
+    }
+}
+
 if (!function_exists('array_get')) {
     /**
      * Get a value from the array using dot notation for nested sets
@@ -319,6 +334,20 @@ if (!function_exists('array_set')) {
             $array = &$array[$key];
         }
         $array = $value;
+    }
+}
+
+if (!function_exists('array_to_query')) {
+    /**
+     * Convert an array to a URL query string
+     *
+     * @param array $array
+     *
+     * @return string
+     */
+    function array_to_query(array $array): string
+    {
+        return http_build_query($array, '', '&', PHP_QUERY_RFC3986);
     }
 }
 
