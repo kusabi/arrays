@@ -198,7 +198,7 @@ if (!function_exists('array_join')) {
      *
      * @return string
      */
-    function array_join(array $array, string $glue = '', string $finalGlue = null): string
+    function array_join(array $array, string $glue = '', ?string $finalGlue = null): string
     {
         if ($finalGlue === null || count($array) <= 1) {
             return implode($glue, $array);
