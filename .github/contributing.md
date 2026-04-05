@@ -1,49 +1,72 @@
 # Coding Standards
 
+
 This library follows [PSR-1](https://www.php-fig.org/psr/psr-1/) & [PSR-2](https://www.php-fig.org/psr/psr-2/) standards.
 
-# Unit tests
 
-When adding a new function, please ensure you add a unit test specifically for it.
+# Unit Tests
 
-If possible, aim for 100% code coverage.
+Before pushing any changes, please ensure the unit tests are all passing.
 
-If modifying a function, please add a unit test for the new functionality (if applicable) and ensure existing tests have not been broken.
-
-The full test suite can be run with the following command
+If possible, feel free to improve coverage in a separate commit.
 
 ```bash
 vendor/bin/phpunit
 ```
 
-Or you can run partial tests using groups
+or
 
 ```bash
-vendor/bin/phpunit --group arrays
-```
-
-# Running the benchmarks
-
-When adding a new function, please ensure you add benchmarks specifically for it.
-
-If modifying a function, try to ensure the benchmarks do not get slower (within reason)
-
-The full benchmark suite can be run with the following command
-
-```bash
-vendor/bin/phpbench run --report quick
-```
-
-Or you can run partial benchmarks by setting a file or directory
-
-```bash
-vendor/bin/phpbench run --report quick benchmarks/Functions/Arrays/
+composer run test
 ```
 
 # Code sniffer
 
-**Please only run the code sniffer if you are using PHP 5**
+Before pushing, please ensure you have run the code sniffer. **Only run it using the lowest support PHP version (7.2)**
 
 ```bash
-vendor/bin/phpcbf .
+vendor/bin/php-cs-fixer fix
+```
+
+or
+
+```bash
+composer run fix
+```
+
+# Static Analyses
+
+Before pushing, please ensure you have run the static analyses tool.
+
+```bash
+vendor/bin/phan
+```
+
+or
+
+```bash
+composer run static
+```
+
+# Benchmarks
+
+Before pushing, please ensure you have checked the benchmarks and ensured that your code has not introduced any slowdowns.
+
+Feel free to speed up existing code, in a separate commit.
+
+Feel free to add more benchmarks for greater coverage, in a separate commit.
+
+```bash
+vendor/bin/phpbench run --report=speed
+vendor/bin/phpbench run --report=speed --output=markdown
+vendor/bin/phpbench run --report=speed --filter=benchNetFromTax --iterations=50 --revs=50000
+
+vendor/bin/phpbench xdebug:profile
+vendor/bin/phpbench xdebug:profile --gui
+```
+
+or
+
+```bash
+composer run bench
 ```
