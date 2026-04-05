@@ -118,6 +118,7 @@ Below you can find links to the documentation for the new features.
 | [array_deflate](documentation/array_deflate.md)       | Flattens a nested array into a single level array                                                         |
 | [array_except](documentation/array_except.md)         | Return a subset of the array by passing in an array of keys to discard                                    |
 | [array_exists](documentation/array_exists.md)         | Checks if the given key or index exists in the array using dot notation for nested arrays                 |
+| [array_find](documentation/array_find.md)             | Return the first item that matches the predicate callback                                                 |
 | [array_first](documentation/array_first.md)           | Get the first item from the array                                                                         |
 | [array_from](documentation/array_from.md)             | Attempt to convert an input into an array                                                                 |
 | [array_from_query](documentation/array_from_query.md) | Convert a URL query string to an array                                                                    |

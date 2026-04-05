@@ -87,6 +87,27 @@ if (!function_exists('array_exists')) {
     }
 }
 
+if (!function_exists('array_find')) {
+    /**
+     * Get the first value from an array that matches a predicate callback
+     *
+     * @param array $array
+     * @param callable $predicate
+     * @param mixed $default
+     *
+     * @return mixed
+     */
+    function array_find(array $array, callable $predicate, $default = null)
+    {
+        foreach ($array as $key => $value) {
+            if ($predicate($value, $key) === true) {
+                return $value;
+            }
+        }
+        return $default;
+    }
+}
+
 if (!function_exists('array_first')) {
     /**
      * Get the first value from an array
