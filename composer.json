@@ -29,5 +29,13 @@
             "Kusabi\\Native\\Benchmarks\\": "benchmarks/",
             "Kusabi\\Native\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "sniff": "vendor/bin/php-cs-fixer fix --dry-run",
+        "fix": "vendor/bin/php-cs-fixer fix",
+        "static": "vendor/bin/phan",
+        "bench": "vendor/bin/phpbench run --report=speed",
+        "quality": ["@test", "@sniff", "@static"]
     }
 }

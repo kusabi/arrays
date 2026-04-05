@@ -49,6 +49,12 @@ If possible, feel free to improve coverage in a separate commit.
 vendor/bin/phpunit
 ```
 
+or
+
+```bash
+composer run test
+```
+
 #### Code sniffer
 
 Before pushing, please ensure you have run the code sniffer. **Only run it using the lowest support PHP version (7.2)**
@@ -57,12 +63,24 @@ Before pushing, please ensure you have run the code sniffer. **Only run it using
 vendor/bin/php-cs-fixer fix
 ```
 
+or
+
+```bash
+composer run fix
+```
+
 #### Static Analyses
 
 Before pushing, please ensure you have run the static analyses tool.
 
 ```bash
 vendor/bin/phan
+```
+
+or
+
+```bash
+composer run static
 ```
 
 #### Benchmarks
@@ -80,6 +98,12 @@ vendor/bin/phpbench run --report=speed --filter=benchNetFromTax --iterations=50 
 
 vendor/bin/phpbench xdebug:profile
 vendor/bin/phpbench xdebug:profile --gui
+```
+
+or
+
+```bash
+composer run bench
 ```
 
 ## Documentation
